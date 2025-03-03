@@ -3,6 +3,7 @@ import "./Add.css"
 import { assets } from '../../assets/assets';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { BASE_URL } from '../../../environment';
 
 const Add = () => {
 
@@ -29,7 +30,7 @@ const Add = () => {
         formData.append("price",Number(data.price))
         formData.append("category",data.category)
         formData.append("image", image)
-        let url = 'http://localhost:4000/api/food//add'
+        let url = `${BASE_URL}food/add`
         const response = await axios.post(url, formData);        
         if(response.data.success) {
             setData({
